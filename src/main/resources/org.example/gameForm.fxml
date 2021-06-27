@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GameController">
+   <children>
+      <Pane prefHeight="430.0" prefWidth="758.0">
+         <children>
+            <ImageView fitHeight="474.0" fitWidth="758.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/game_background.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="320.0" fitWidth="730.0" layoutX="14.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/mankala.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField5" fitHeight="75.0" fitWidth="75.0" layoutX="152.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField4" fitHeight="75.0" fitWidth="75.0" layoutX="227.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField3" fitHeight="75.0" fitWidth="75.0" layoutX="302.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField2" fitHeight="75.0" fitWidth="75.0" layoutX="377.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField1" fitHeight="75.0" fitWidth="75.0" layoutX="452.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField0" fitHeight="75.0" fitWidth="75.0" layoutX="527.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField0" fitHeight="75.0" fitWidth="75.0" layoutX="152.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField1" fitHeight="75.0" fitWidth="75.0" layoutX="227.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField2" fitHeight="75.0" fitWidth="75.0" layoutX="302.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField3" fitHeight="75.0" fitWidth="75.0" layoutX="377.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField4" fitHeight="75.0" fitWidth="75.0" layoutX="452.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField5" fitHeight="75.0" fitWidth="75.0" layoutX="527.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="blackField6" fitHeight="75.0" fitWidth="75.0" layoutX="56.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="whiteField6" fitHeight="75.0" fitWidth="75.0" layoutX="625.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/04.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

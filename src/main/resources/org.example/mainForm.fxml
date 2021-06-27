@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" prefHeight="459.0" prefWidth="749.0" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Main">
+   <children>
+      <Pane prefHeight="458.0" prefWidth="751.0">
+         <children>
+            <Label id="label_id" layoutX="26.0" layoutY="24.0" text="Label" />
+            <Button fx:id="button" layoutX="14.0" layoutY="127.0" mnemonicParsing="false" onAction="#joinButton" prefHeight="38.0" prefWidth="80.0" text="Dołącz" />
+            <Button layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#hostButton" prefHeight="38.0" prefWidth="80.0" text="Hostuj" />
+            <Button layoutX="54.0" layoutY="390.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="38.0" prefWidth="80.0" text="Zaloguj" />
+            <TextField fx:id="loginTextField" layoutX="20.0" layoutY="300.0" prefHeight="32.0" prefWidth="149.0" promptText="Login" />
+            <TextField fx:id="passwordTextField" layoutX="20.0" layoutY="343.0" prefHeight="32.0" prefWidth="149.0" promptText="Hasło" />
+            <Button layoutX="14.0" layoutY="185.0" mnemonicParsing="false" onAction="#gamePrinciplesButton" prefHeight="38.0" prefWidth="80.0" text="Zasady" />
+            <ImageView fx:id="photoSpace" fitHeight="410.0" fitWidth="549.0" layoutX="181.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+            <ListView fx:id="listViewMatches" layoutX="189.0" layoutY="27.0" prefHeight="410.0" prefWidth="541.0" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
