@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,6 +20,7 @@ public class Main extends Application {
     private static Socket client = null;
     private static BufferedReader in = null;
     public static PrintWriter out = null;
+    public static Thread clientThread;
 
 
 
@@ -34,14 +37,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) throws IOException {
-
-        client = new Socket(SERVER_IP, SERVER_PORT);
-        in = new BufferedReader(new InputStreamReader(System.in));
-        out = new PrintWriter(client.getOutputStream(),true);
-
-        ServerConnection serverConnection = new ServerConnection(client,in,out);
-        new Thread(serverConnection).start();
-
         launch(args);
     }
 
@@ -53,18 +48,76 @@ public class Main extends Application {
 
     public TextField loginTextField;
     public TextField passwordTextField;
+    public  Button loginButton;
+    public  Button hostButton;
+    public  Button joinButton;
+    public  Button rulesButton;
+    public ListView listViewMatches;
 
     public void joinButton(ActionEvent actionEvent) {
     }
 
     public void hostButton(ActionEvent actionEvent) {
+        if(!joinButton.isDisable()) {
+            joinButton.setDisable(true);
+            out.println(Messages.Client.Host);
+        }
+        else {
+            out.println(Messages.Client.Host);
+            joinButton.setDisable(false);
+        }
     }
 
     public void loginButton(ActionEvent actionEvent) {
 
+        if(loginButton.getText().equals("Zaloguj")){
+            listViewMatches.getItems().clear();
+            try {
+                client = new Socket(SERVER_IP, SERVER_PORT);
+                in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                out = new PrintWriter(client.getOutputStream(),true);
 
-        String text = ";" + loginTextField.getText() + ";" +  passwordTextField.getText();
-        out.println(Messages.Client.Login + text);
+                ServerConnection serverConnection = new ServerConnection(client,in,out,this);
+
+                clientThread = new Thread(serverConnection);
+                clientThread.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String text = ";" + loginTextField.getText() + ";" +  passwordTextField.getText();
+            out.println(Messages.Client.Login + text);
+
+            loginButton.setText("Wyloguj");
+            rulesButton.setDisable(false);
+            joinButton.setDisable(false);
+            hostButton.setDisable(false);
+            loginTextField.setVisible(false);
+            passwordTextField.setVisible(false);
+
+        }
+        else {
+            listViewMatches.getItems().clear();
+            try {
+                client.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            clientThread.interrupt();
+
+            rulesButton.setDisable(true);
+            joinButton.setDisable(true);
+            hostButton.setDisable(true);
+            loginButton.setText("Zaloguj");
+            loginTextField.setVisible(true);
+            passwordTextField.setVisible(true);
+        }
+
+    }
+
+    public static void Logout()
+    {
+
     }
 
     public void gamePrinciplesButton(ActionEvent actionEvent) {

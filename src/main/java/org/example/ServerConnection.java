@@ -1,35 +1,48 @@
 package org.example;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class ServerConnection implements Runnable{
 
     private Socket server;
     private BufferedReader in;
     private PrintWriter out;
+    private Main main;
 
-    public ServerConnection(Socket server, BufferedReader in, PrintWriter out) throws IOException {
+
+    public ServerConnection(Socket server, BufferedReader in, PrintWriter out, Main main) throws IOException {
         this.server = server;
         this.in = in;
         this.out = out;
+        this.main = main;
     }
+
+
 
     @Override
     public void run() {
-
         try
         {
             while(true)
             {
+                System.out.println("czekanie");
                 String request[] = in.readLine().split(";");
+                Arrays.stream(request).forEach(x-> System.out.print(x));
+                System.out.println();
                 switch (request[0]) {
                     case Messages.Server.Start: // socket;id;name
                         Stage stage = new Stage();
@@ -37,8 +50,34 @@ public class ServerConnection implements Runnable{
                         Scene sceneGame = new Scene(gameForm,758,474);
                         stage.setScene(sceneGame);
                         break;
-                    case Messages.Server.Logged: // socket1;1 socket2 (tego gracza)  login;id;imie
+                    case Messages.Server.Matches:
+                        Platform.runLater(new Runnable(){
+                            @Override
+                            public void run() {
+                                main.listViewMatches.getItems().clear();
+                                main.listViewMatches.getItems().setAll(Arrays.stream(request).skip(1).toArray());
+                            }
+                        });
+                        break;
+                    case Messages.Server.Disconnect: // socket1;1 socket2 (tego gracza)  login;id;imie
+                            try {
+                                in.close();
+                            } catch (IOException e) {
+                                System.out.println("Zamknieto połączenie");
+                            }
+                            out.close();
 
+                        Platform.runLater(new Runnable(){
+                            @Override
+                            public void run() {
+                                main.rulesButton.setDisable(true);
+                                main.joinButton.setDisable(true);
+                                main.hostButton.setDisable(true);
+                                main.loginButton.setText("Zaloguj");
+                                main.loginTextField.setVisible(true);
+                                main.passwordTextField.setVisible(true);
+                            }
+                        });
                         break;
                     default:
                         System.out.println("Nierozpoznana akcja");
@@ -60,8 +99,14 @@ public class ServerConnection implements Runnable{
         }
     }
 
-
-
-
+    public void stop() {
+        System.out.println("Zatrzymanie ServerConnection");
+        out.close();
+        try {
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
