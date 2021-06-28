@@ -1,95 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="432.0" prefWidth="754.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GameController">
+<AnchorPane prefHeight="398.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GameController">
    <children>
-      <Pane prefHeight="430.0" prefWidth="758.0">
+      <Pane layoutY="-1.0" prefHeight="418.0" prefWidth="758.0">
          <children>
-            <ImageView fitHeight="474.0" fitWidth="758.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="447.0" fitWidth="765.0" layoutX="-3.0" layoutY="-8.0" onMouseClicked="#blackLabel2_Clicked" onMouseEntered="#whiteLabel2_Entered" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/game_background.jpg" />
+                  <Image url="@../Images/bg.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="320.0" fitWidth="730.0" layoutX="14.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox12" fitHeight="61.0" fitWidth="66.0" layoutX="152.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/mankala.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField5" fitHeight="75.0" fitWidth="75.0" layoutX="152.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox11" fitHeight="61.0" fitWidth="75.0" layoutX="227.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField4" fitHeight="75.0" fitWidth="75.0" layoutX="227.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox10" fitHeight="61.0" fitWidth="63.0" layoutX="302.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField3" fitHeight="75.0" fitWidth="75.0" layoutX="302.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox9" fitHeight="61.0" fitWidth="63.0" layoutX="377.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField2" fitHeight="75.0" fitWidth="75.0" layoutX="377.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox8" fitHeight="61.0" fitWidth="63.0" layoutX="458.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField1" fitHeight="75.0" fitWidth="75.0" layoutX="452.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox7" fitHeight="61.0" fitWidth="63.0" layoutX="533.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField0" fitHeight="75.0" fitWidth="75.0" layoutX="527.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox0" fitHeight="61.0" fitWidth="63.0" layoutX="152.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField0" fitHeight="75.0" fitWidth="75.0" layoutX="152.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox1" fitHeight="61.0" fitWidth="63.0" layoutX="227.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField1" fitHeight="75.0" fitWidth="75.0" layoutX="227.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox2" fitHeight="61.0" fitWidth="63.0" layoutX="302.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField2" fitHeight="75.0" fitWidth="75.0" layoutX="302.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox3" fitHeight="61.0" fitWidth="63.0" layoutX="379.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField3" fitHeight="75.0" fitWidth="75.0" layoutX="377.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox4" fitHeight="61.0" fitWidth="63.0" layoutX="458.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField4" fitHeight="75.0" fitWidth="75.0" layoutX="452.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox5" fitHeight="61.0" fitWidth="63.0" layoutX="533.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField5" fitHeight="75.0" fitWidth="75.0" layoutX="527.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox13" fitHeight="61.0" fitWidth="63.0" layoutX="79.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/00.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackField6" fitHeight="75.0" fitWidth="75.0" layoutX="56.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fieldImageBox6" fitHeight="61.0" fitWidth="63.0" layoutX="615.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/00.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="whiteField6" fitHeight="75.0" fitWidth="75.0" layoutX="625.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="whiteLabel0" layoutX="175.0" layoutY="348.0" onMouseClicked="#whiteLabel0_Clicked" onMouseEntered="#whiteLabel0_Entered" onMouseExited="#whiteLabel0_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel1" layoutX="250.0" layoutY="348.0" onMouseClicked="#whiteLabel1_Clicked" onMouseEntered="#whiteLabel1_Entered" onMouseExited="#whiteLabel1_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel2" layoutX="325.0" layoutY="348.0" onMouseClicked="#whiteLabel2_Clicked" onMouseEntered="#whiteLabel0_Entered" onMouseExited="#whiteLabel2_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel3" layoutX="402.0" layoutY="348.0" onMouseClicked="#whiteLabel3_Clicked" onMouseEntered="#whiteLabel3_Entered" onMouseExited="#whiteLabel3_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel4" layoutX="481.0" layoutY="348.0" onMouseClicked="#whiteLabel4_Clicked" onMouseEntered="#whiteLabel4_Entered" onMouseExited="#whiteLabel4_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel5" layoutX="555.0" layoutY="348.0" onMouseClicked="#whiteLabel5_Clicked" onMouseEntered="#whiteLabel5_Entered" onMouseExited="#whiteLabel5_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="whiteLabel6" layoutX="726.0" layoutY="186.0" prefHeight="29.0" prefWidth="18.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel0" layoutX="555.0" layoutY="38.0" onMouseClicked="#blackLabel0_Clicked" onMouseEntered="#blackLabel0_Entered" onMouseExited="#blacklLabel0_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel1" layoutX="481.0" layoutY="38.0" onMouseClicked="#blackLabel1_Clicked" onMouseEntered="#blackLabel1_Entered" onMouseExited="#blacklLabel1_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel2" layoutX="402.0" layoutY="38.0" onMouseClicked="#blackLabel2_Clicked" onMouseEntered="#blackLabel2_Entered" onMouseExited="#blacklLabel2_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel3" layoutX="325.0" layoutY="38.0" onMouseClicked="#blackLabel3_Clicked" onMouseEntered="#blackLabel3_Entered" onMouseExited="#blacklLabel3_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel4" layoutX="250.0" layoutY="38.0" onMouseClicked="#blackLabel4_Clicked" onMouseEntered="#blackLabel4_Entered" onMouseExited="#blacklLabel4_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel5" layoutX="175.0" layoutY="38.0" onMouseClicked="#blackLabel5_Clicked" onMouseEntered="#blackLabel5_Entered" onMouseExited="#blacklLabel5_Exited" prefHeight="29.0" prefWidth="18.0" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="blackLabel6" layoutX="21.0" layoutY="186.0" prefHeight="29.0" prefWidth="18.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="45.0" fitWidth="117.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/04.png" />
+                  <Image url="@../Images/guzik.png" />
                </image>
             </ImageView>
+            <Label layoutX="34.0" layoutY="19.0" onMouseClicked="#endingGame_Click" prefHeight="19.0" prefWidth="91.0" text="Zakończ grę" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="statusLabel" layoutX="653.0" layoutY="13.0" text="statusLabel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
