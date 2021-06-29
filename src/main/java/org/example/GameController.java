@@ -1,15 +1,19 @@
 package org.example;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class GameController {
+public class GameController  {
     public ImageView fieldImageBox0;
     public ImageView fieldImageBox1;
     public ImageView fieldImageBox2;
@@ -47,7 +51,11 @@ public class GameController {
     List<Image> imageList;
     String playerColor;
 
-    public GameController(String playerColor){
+    //@Override
+   // public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    public void startGame(String playerColor){
         this.playerColor = playerColor;
         labelList = new ArrayList<Label>();
 
@@ -100,6 +108,13 @@ public class GameController {
         imageViewList.add(fieldImageBox12);
         imageViewList.add(fieldImageBox13);
 
+        imageList = new ArrayList<>();
+        imageList.add(new Image(Main.class.getResource("/images/00.png").toString()));
+        imageList.add(new Image(Main.class.getResource("/images/1.png").toString()));
+        imageList.add(new Image(Main.class.getResource("/images/2.png").toString()));
+        imageList.add(new Image(Main.class.getResource("/images/3.png").toString()));
+        imageList.add(new Image(Main.class.getResource("/images/4.png").toString()));
+        imageList.add(new Image(Main.class.getResource("/images/5.png").toString()));
         setPictures();
     }
 
@@ -347,7 +362,7 @@ public class GameController {
         int count = 0;
         for(int i = 0; i <= 5; i++)
         {
-            if (labelList.get(i).getText() == "0")
+            if (labelList.get(i).getText().equals("0"))
                 count++;
         }
         if (count == 6)
@@ -359,7 +374,7 @@ public class GameController {
         count = 0;
         for (int i = 7; i <= 12; i++)
         {
-            if (labelList.get(i).getText() == "0")
+            if (labelList.get(i).getText().equals("0"))
                 count++;
         }
         if (count == 6)
@@ -440,7 +455,7 @@ public class GameController {
     {
         for (Label l : labelList)
         {
-            if (l.getId().substring(0, 5) == "black")
+            if (l.getId().substring(0, 5).equals("black"))
             {
                 l.setDisable(true);
             }
@@ -450,7 +465,7 @@ public class GameController {
     {
         for (Label l : labelList)
         {
-            if (l.getId().substring(0, 5) == "black")
+            if (l.getId().substring(0, 5).equals("black"))
             {
                 l.setDisable(false);
             }
@@ -461,7 +476,7 @@ public class GameController {
     {
         for (Label l : labelList)
         {
-            if (l.getId().substring(0, 5) == "white")
+            if (l.getId().substring(0, 5).equals("white"))
             {
                 l.setDisable(true);
             }
@@ -471,7 +486,7 @@ public class GameController {
     {
         for (Label l : labelList)
         {
-            if (l.getId().substring(0, 5) == "white")
+            if (l.getId().substring(0, 5).equals("white"))
             {
                 l.setDisable(false);
             }
@@ -629,6 +644,7 @@ public class GameController {
         setAllBlack();
         setWhiteDisabled();
     }
+
 
 
 }

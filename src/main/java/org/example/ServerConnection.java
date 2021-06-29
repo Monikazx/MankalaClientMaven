@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -44,11 +45,26 @@ public class ServerConnection implements Runnable{
                 Arrays.stream(request).forEach(x-> System.out.print(x));
                 System.out.println();
                 switch (request[0]) {
-                    case Messages.Server.Start: // socket;id;name
-                        Stage stage = new Stage();
-                        Parent gameForm = FXMLLoader.load(getClass().getResource("gameForm.fxml"));
-                        Scene sceneGame = new Scene(gameForm,758,474);
-                        stage.setScene(sceneGame);
+                    case Messages.Server.Start:
+                        try{
+                            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org.example/gameForm.fxml"));
+                            Parent root = fxmlLoader.load();
+                            Stage window = (Stage)main.joinButton.getScene().getWindow();
+                            GameController gc = fxmlLoader.getController();
+                            gc.startGame(request[1]);
+
+
+                            Platform.runLater(new Runnable(){
+                                @Override
+                                public void run() {
+                                    window.setScene(new Scene(root, 700, 700));
+                                }
+                            });
+
+                        }catch(IOException e) {
+                            System.out.println("Nie można otworzyć okna gry...");
+                            e.printStackTrace();
+                        }
                         break;
                     case Messages.Server.Matches:
                         Platform.runLater(new Runnable(){

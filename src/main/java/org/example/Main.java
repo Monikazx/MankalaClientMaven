@@ -1,6 +1,7 @@
 package org.example;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,6 +56,9 @@ public class Main extends Application {
     public ListView listViewMatches;
 
     public void joinButton(ActionEvent actionEvent) {
+        String playerName = listViewMatches.getSelectionModel().selectedItemProperty().get().toString();
+        System.out.println("playername - > "+playerName);
+        out.println(Messages.Client.Join+";"+playerName);
     }
 
     public void hostButton(ActionEvent actionEvent) {
