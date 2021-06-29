@@ -1,19 +1,14 @@
 package org.example;
 
 import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class GameController  {
     public ImageView fieldImageBox0;
@@ -94,6 +89,7 @@ public class GameController  {
             }
             statusLabel.setText("TWOJA TURA");
         }
+        imageViewList = new ArrayList<ImageView>();
         imageViewList = new ArrayList<ImageView>();
         imageViewList.add(fieldImageBox0);
         imageViewList.add(fieldImageBox1);
@@ -236,8 +232,10 @@ public class GameController  {
 
     private void yourMove(int labelIndex)
     {
-
-        if (labelList.get(labelIndex).getText() == "0")
+        if(labelList.get(labelIndex).isDisable()){
+            return;
+        }
+        if (labelList.get(labelIndex).getText().equals("0"))
         {
             return;
         }
@@ -413,13 +411,13 @@ public class GameController  {
         {
             if (i % 14 == 13)
             {
-                labelList.get(i).setTextFill(Color.BLACK);
+                labelList.get(i).setTextFill(Color.WHITE);
                 maxValue++;
             }
             else
             {
                 labelList.get(i % 14).setDisable(false);
-                labelList.get(i%14).setTextFill(Color.PINK);
+                labelList.get(i%14).setTextFill(Color.GOLD);
             }
         }
     }
@@ -433,11 +431,11 @@ public class GameController  {
             {
                 if (i > 14)
                 {
-                    labelList.get(14-(14-(i%14))).setTextFill(Color.BLACK);
+                    labelList.get(14-(14-(i%14))).setTextFill(Color.WHITE);
                 }
                 else
                 {
-                    labelList.get(i).setTextFill(Color.BLACK);
+                    labelList.get(i).setTextFill(Color.WHITE);
                 }
 
                 maxValue++;
@@ -445,15 +443,15 @@ public class GameController  {
             else
             {
                 labelList.get(i % 14).setDisable(false);
-                labelList.get(i % 14).setTextFill(Color.PINK);
+                labelList.get(i % 14).setTextFill(Color.GOLD);
             }
         }
     }
-    private void setAllBlack()
+    private void setAllWhite()
     {
         for (Label l : labelList)
         {
-            l.setTextFill(Color.BLACK);
+            l.setTextFill(Color.WHITE);
         }
     }
     private void setBlackDisabled()
@@ -602,51 +600,51 @@ public class GameController  {
 
 
     public void whiteLabel0_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void whiteLabel1_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void whiteLabel2_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void whiteLabel3_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void whiteLabel4_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void whiteLabel5_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setBlackDisabled();
     }
     public void blacklLabel0_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
     public void blacklLabel1_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
     public void blacklLabel2_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
     public void blacklLabel3_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
     public void blacklLabel4_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
     public void blacklLabel5_Exited(MouseEvent mouseEvent) {
-        setAllBlack();
+        setAllWhite();
         setWhiteDisabled();
     }
 

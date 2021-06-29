@@ -57,7 +57,7 @@ public class ServerConnection implements Runnable{
                             Platform.runLater(new Runnable(){
                                 @Override
                                 public void run() {
-                                    window.setScene(new Scene(root, 700, 700));
+                                    window.setScene(new Scene(root, 758, 418));
                                 }
                             });
 
