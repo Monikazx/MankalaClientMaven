@@ -1,7 +1,9 @@
 package org.example;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -320,11 +322,12 @@ public class GameController  {
         if ((labelIndex + labelIndexValue) % 14 == 6 || (labelIndex + labelIndexValue) % 14 == 13)//###EXTRA MOVE###
         {
            // mainForm.client.Send(Messages.Client.Move + $":{labelIndex}");
-            /**
-             *
-             *  POPRAWIC
-             *
-             */
+            Platform.runLater(new Runnable(){
+                @Override
+                public void run() {
+                    Main.out.println(Messages.Client.Move+";"+labelIndex);
+                }
+            });
         }
         else
         {
@@ -334,10 +337,12 @@ public class GameController  {
             }
             statusLabel.setText("TURA PRZECIWNIKA");
             //mainForm.client.Send(Messages.Client.Move + $":{labelIndex}");
-            /**
-             *
-             *  I TU
-             */
+            Platform.runLater(new Runnable(){
+                @Override
+                public void run() {
+                    Main.out.println(Messages.Client.Move+";"+labelIndex);
+                }
+            });
         }
         labelList.get(labelIndex).setText("0");
         setPictures();

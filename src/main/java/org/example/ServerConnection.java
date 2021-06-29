@@ -23,7 +23,7 @@ public class ServerConnection implements Runnable{
     private BufferedReader in;
     private PrintWriter out;
     private Main main;
-
+    private GameController gc;
 
     public ServerConnection(Socket server, BufferedReader in, PrintWriter out, Main main) throws IOException {
         this.server = server;
@@ -50,7 +50,7 @@ public class ServerConnection implements Runnable{
                             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/org.example/gameForm.fxml"));
                             Parent root = fxmlLoader.load();
                             Stage window = (Stage)main.joinButton.getScene().getWindow();
-                            GameController gc = fxmlLoader.getController();
+                            gc = fxmlLoader.getController();
                             gc.startGame(request[1]);
 
 
@@ -65,6 +65,15 @@ public class ServerConnection implements Runnable{
                             System.out.println("Nie można otworzyć okna gry...");
                             e.printStackTrace();
                         }
+                        break;
+                    case Messages.Server.Move:
+                        Platform.runLater(new Runnable(){
+                            @Override
+                            public void run() {
+                                gc.statusLabel.setText("TWOJA TURA");
+                                gc.enemyMoveFromServer(Integer.parseInt(request[1]));
+                            }
+                        });
                         break;
                     case Messages.Server.Matches:
                         Platform.runLater(new Runnable(){
